@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset= "utf-8">
+  <title>AI Genesis</title>
+
+<style>
+body {background: black; color: white;
+		margin: 0;
+		font-family: Optima, sans-serif;}
+h1, h2, h3, h4 {text-align: center;}
+button {background: black; color: white;}
+p.HON {float: right;
+		clear: both;
+		margin-right: 2%;}
+.closebutton {
+		position: absolute;
+		top: 1.5%;
+		right: 1.5%;
+		text-decoration: none; color: #6eeefa;
+		font-size: 1.5em;}
+iframe {display: block;
+		margin: 36pt;
+		border: solid gold;
+		border-radius: 6pt;}
+canvas {border: solid white;}
+#display {position: absolute;
+		z-index: 1;
+		top: 0; left: 0;
+		margin: 0;
+		/*box-sizing is beautiful. It makes the 
+		border NOT affect the width of the element.*/
+		box-sizing: border-box;
+		overflow: hidden;
+		height: 0;
+		width: 100%;
+		transition: 0.6s;
+		background-color: black;
+		border: solid #6eeefa;
+		display: grid;
+		grid-template-rows: 15% auto auto;
+		grid-template-columns: 15% auto 15%;
+		grid-template-areas: "top-a top-a top-a"
+							"left-a workspace-area right-a"
+							"left-a workspace-area right-a";
+		grid-row-gap: 2%;
+		grid-column-gap: 2%;}
+		#top-display {grid-area: top-a; text-align: center;
+						border-bottom: dotted #6eeefa;}
+		#workspace-display {grid-area: workspace-area;}
+		#side-display-left {grid-area: left-a;
+						border-right: dotted #6eeefa;}
+		#side-display-right {grid-area: right-a;
+						border-left: dotted #6eeefa;}
+#wake-up-screen {position: absolute;
+		z-index: 0;
+		width: 100%;}
+#meta {padding: 1in;
+		font-size: 1.25em;}
+#hello-par, #name-par, #status-par {display: none;}
+
+</style>
+
+</head>
+
+
+
+<body>
+<!--To Do:
+	Put the wake-up screen in a CSS grid
+	Put actual content in the display screen
+-->
+<div id="display">
+<a href="javascript:void(0)" class="closebutton" onclick="closeDisplay()">
+&times;</a>
+
+<section id="top-display">
+<!--This will be the top display,
+a transparent row of common commands and functions 
+like the close button. 
+Perhaps a search bar or form as well.-->
+<p>"Make a manipulatable projection," I said. "It'll be easy," I said.<p>
+<h2>Top display</h2>
+</section>
+
+<section id="workspace-display">
+<!--This will be the workspace, 
+with HON's dialogue and information / schematics 
+you pull up.-->
+<h2>Workspace</h2>
+</section>
+
+<section id="side-display-left">
+<!--This will be the left display, 
+a list of things you've thrown to the left and, in the 
+bottom corner, HON's status in a SVG circle.-->
+<h2>Left display</h2>
+</section>
+
+<section id="side-display-right">
+<!--This will be the right display: 
+Things you throw to the right, current projects in 
+a list, and so on.-->
+<h2>Right display</h2>
+</section>
+
+</div>
+
+<div id="wake-up-screen">
+<h1>Android Awakening Environment</h1>
+<button onclick="hello()">Hello.</button>
+<button onclick="status()">Status report.</button>
+<button onclick="say_name()">What is your name?</button>
+
+<button onclick="openDisplay()">Activate display.</button>
+
+<p class="HON" id="hello-par">Good day, Madam.</p>
+<p class="HON" id="status-par">I seem to be malfunctioning.</p>
+<p class="HON" id="name-par">I... I don't know my name.</p>
+
+
+<!--This was entered into the document by clicking "share" on the 
+YouTube document, than "embed"-->
+<iframe width="560" height="315" 
+src="https://www.youtube-nocookie.com/embed/Zg_nD_x0bgM" 
+frameborder="0" allow="accelerometer; clipboard-write; 
+encrypted-media; gyroscope; modestbranding=1; 
+picture-in-picture" allowfullscreen></iframe>
+
+<!--The meta part of the wake up screen-->
+<div id="meta">
+<h1>Meta</h1>
+<h2>About this page</h2>
+<p>This is my way of learning Javascript: by 
+integrating it in a fun, flashy page inspired 
+by JARVIS and the Batcomputer.</p>
+</div>
+
+</div>
+
+<!--The JavaScript part-->
+<script>
+var HON290 = {
+	species: "AI system",
+	nickname: "HON",
+	shortName: "HON 290", 
+	fullName: "Honeyberry Operating Entity",
+	accent: "Russian"}
+
+function hello () {
+    setTimeout (function()	{	document.getElementById("hello-par").style.display = "block";	}, 200);
+}
+
+function status () {
+    setTimeout (function()	{	document.getElementById("status-par").style.display = "block";	}, 800);
+    document.getElementById("status-par").innerHTML = "I appear to be fully functional.";
+}
+
+function say_name () {
+    setTimeout (function()	{	document.getElementById("name-par").style.display = "block";	}, 300);
+    document.getElementById("name-par").innerHTML = "My name is " + HON290.shortName + ", short for " + HON290.fullName + ".";
+}
+
+function openDisplay() {
+    document.getElementById("display").style.height = "100%";
+    document.getElementById("wake-up-screen").style.display = "none";
+    document.getElementById("wake-up-screen").style.display = "none";
+}
+
+function closeDisplay() {
+    document.getElementById("display").style.height = "0";
+    document.getElementById("wake-up-screen").style.display = "block";
+    document.getElementById("wake-up-screen").style.display = "block";
+}
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
